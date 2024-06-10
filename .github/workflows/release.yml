@@ -168,13 +168,12 @@ jobs:
         cmake --build . --target install
     - name: package
       run: |
-        tree -a ${{ env.SOURCE_DIR }}
         mkdir ${{ env.PACKAGE_NAME }}
         cp -rf ${{ env.SOURCE_DIR }}/build-x86/install/* ${{ env.PACKAGE_NAME }}/
         cp -rf ${{ env.SOURCE_DIR }}/build-x86_64/install/* ${{ env.PACKAGE_NAME }}/
         cp -rf ${{ env.SOURCE_DIR }}/build-armeabi-v7a/install/* ${{ env.PACKAGE_NAME }}/
         cp -rf ${{ env.SOURCE_DIR }}/build-arm64-v8a/install/* ${{ env.PACKAGE_NAME }}/
-        zip -9 -r ${{ env.PACKAGE_NAME }}.zip ${{ env.PACKAGE_NAME }}
+        zip -9 -r ${{ env.PACKAGE_NAME }}.zip ${{ env.SOURCE_DIR }}
     - name: test-armeabi-v7a
       run: |
         cd test
