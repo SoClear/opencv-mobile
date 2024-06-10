@@ -91,7 +91,7 @@ jobs:
         patch -p1 -i ../patches/opencv-${{ env.opencv-version }}-drawing-mono-font.patch
         rm -rf modules/highgui
         cp -r ../highgui modules/
-        rm -rf 3rdparty apps data doc platforms
+        rm -rf 3rdparty apps data doc
         rm -rf modules/java
         rm -rf modules/js
         rm -rf modules/python
